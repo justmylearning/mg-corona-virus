@@ -1,5 +1,7 @@
 This project was written using ReactJS and all the data is provided by covid19-api.com free API.
 
+Available at https://mg-corona-virus.web.app
+
 ## COVID-19 data Overview
 We collect information from several reliable sources, like Johns Hopkins CSSE, CDC, WHO and a few others. All our sources are verified, and we avoid collecting information that is not confirmed by official authorities.
 
