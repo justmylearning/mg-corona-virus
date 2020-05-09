@@ -5,7 +5,7 @@ import App from './App';
 test('renders learn react link', () => {
   const { getByText } = render(<App />);
   const linkElement = getByText(
-    /Discovery all the numbers related to the corona virus in your country! /i
+    /Discovery all the numbers related to the corona virus in your country!/i
   );
   expect(linkElement).toBeInTheDocument();
 });
