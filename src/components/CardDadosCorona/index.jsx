@@ -78,9 +78,6 @@ export default function CardDadosCorona({ dados }) {
           ))}
         </Grid>
       </CardContent>
-      {/*<CardActions>*/}
-      {/*  <Button size="small">Atualizar</Button>*/}
-      {/*</CardActions>*/}
     </Card>
   );
 }
