@@ -1,3 +1,13 @@
+This project was written using ReactJS and all the data is provided by covid19-api.com free API.
+
+## COVID-19 data Overview
+We collect information from several reliable sources, like Johns Hopkins CSSE, CDC, WHO and a few others. All our sources are verified, and we avoid collecting information that is not confirmed by official authorities.
+
+Every country sends official reports differently. From once per day to every hour. That depends on the scale of the pandemic and the time zone. Nevertheless, we are trying to update every new information ASAP.
+
+If you have a specific wish, please let us know (Discussions), and we will try to put it on our road map. This is a non-profit humanitarian project, and all the money we get goes for better servers, data providers and other expenses for providing you with a better, faster and more reliable API. Stay safe.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

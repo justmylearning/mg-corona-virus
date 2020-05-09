@@ -174,7 +174,7 @@ export default function NavBar() {
           {/*  <MenuIcon />*/}
           {/*</IconButton>*/}
           <Typography className={classes.title} variant="h6" noWrap>
-            Corona Virus Count
+            Corona Virus Counter
           </Typography>
           {/*<div className={classes.search}>*/}
           {/*  <div className={classes.searchIcon}>*/}

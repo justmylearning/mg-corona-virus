@@ -3,15 +3,18 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import paises from './paises.json';
 
 export default function FiltroPais({ onPaisChange }) {
+  const onChangeHandler = (evt, pais) => {
+    onPaisChange(pais ? pais.name : null);
+  };
+
   return (
     <Grid container spacing={2} alignItems="center">
       <Grid item xs={12}>
         <Autocomplete
-          onChange={(event, { name }) => onPaisChange(name)}
+          onChange={onChangeHandler}
           fullWidth
           id="combo-box-demo"
           options={paises}
@@ -22,11 +25,6 @@ export default function FiltroPais({ onPaisChange }) {
           noOptionsText="None country found"
         />
       </Grid>
-      {/*<Grid item xs={12} md={3}>*/}
-      {/*  <Button variant="contained" color="primary" size="large" fullWidth>*/}
-      {/*    SEARCH*/}
-      {/*  </Button>*/}
-      {/*</Grid>*/}
     </Grid>
   );
 }

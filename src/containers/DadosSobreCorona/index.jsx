@@ -6,14 +6,8 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import FiltroPais from '../../components/FiltroPais';
 import ApresentacaoSobreCovid from '../../components/ApresentacaoSobreCovid';
-import CardDadosCorona from '../CardDadosCorona';
+import CardDadosCorona from '../../components/CardDadosCorona';
 
-// const dados = {
-//   confirmados: 1,
-//   recuperados: 2,
-//   criticos: 3,
-//   mortes: 4,
-// };
 export default function DadosSobreCorona({ getDadosPorPais }) {
   const [dadosCorona, setDadosCorona] = useState();
   const [nomePaisSelecionado, setNomePaisSelecionado] = useState();
@@ -27,7 +21,6 @@ export default function DadosSobreCorona({ getDadosPorPais }) {
         deaths,
         lastUpdate,
       } = resultado[0];
-      const momentjs = moment;
       const dataAtualizacao = lastUpdate
         ? moment(lastUpdate, 'YYYY-MM-DDTHH:mm:ssZ').toDate()
         : null;
