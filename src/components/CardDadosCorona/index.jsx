@@ -6,6 +6,13 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import moment from 'moment';
+import { Box } from '@material-ui/core';
+import {
+  GridTituloStyled,
+  TypographyTipoDadoStyled,
+  TypographyTituloStyled,
+  TypographyValorDadoStyled,
+} from './style';
 
 const useStyles = makeStyles({
   root: {
@@ -27,7 +34,7 @@ const useStyles = makeStyles({
 export default function CardDadosCorona({ dados }) {
   const { confirmados, recuperados, criticos, mortes, dataAtualizacao } = dados;
   const dataAtualizacaoFormatada = dataAtualizacao
-    ? `Last update at ${moment(dataAtualizacao).format('MM-DD HH:mm')}`
+    ? `Last update ${moment(dataAtualizacao).calendar()}`
     : 'Unknow update date';
   const classes = useStyles();
   const dadosEstruturados = [
@@ -38,6 +45,7 @@ export default function CardDadosCorona({ dados }) {
     {
       titulo: 'Recovered',
       valor: recuperados,
+      green: true,
     },
     {
       titulo: 'Critical',
@@ -46,34 +54,51 @@ export default function CardDadosCorona({ dados }) {
     {
       titulo: 'Deaths',
       valor: mortes,
+      red: true,
     },
   ];
 
   return (
     <Card className={classes.root} elevation={3}>
       <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          {dataAtualizacaoFormatada}
-        </Typography>
-        <Grid container spacing={3}>
+        <Box mb={2}>
+          <GridTituloStyled container justify="center">
+            <TypographyTituloStyled
+              className={classes.title}
+              color="textSecondary"
+              align="right"
+              variant="overline"
+            >
+              {dataAtualizacaoFormatada}
+            </TypographyTituloStyled>
+          </GridTituloStyled>
+        </Box>
+        <Grid container spacing={3} justify="center">
           {dadosEstruturados.map(({ titulo }) => (
-            <Grid key={titulo} item xs={3}>
-              <Typography color="textSecondary" paragraph>
+            <Grid key={titulo} item xs={3} container justify="center">
+              <TypographyTipoDadoStyled
+                color="textSecondary"
+                align="center"
+                variant="overline"
+              >
                 {titulo}
-              </Typography>
+              </TypographyTipoDadoStyled>
             </Grid>
           ))}
         </Grid>
-        <Grid container spacing={3}>
-          {dadosEstruturados.map(({ titulo, valor }) => (
+        <Grid container spacing={3} justify="center">
+          {dadosEstruturados.map(({ titulo, valor, green, red }) => (
             <Grid key={`${titulo}-${valor}`} item xs={3}>
-              <Typography color="textSecondary" paragraph>
+              <TypographyValorDadoStyled
+                color="textSecondary"
+                paragraph
+                align="center"
+                variant="overline"
+                green={green}
+                red={red}
+              >
                 {valor.toLocaleString()}
-              </Typography>
+              </TypographyValorDadoStyled>
             </Grid>
           ))}
         </Grid>

@@ -46,9 +46,6 @@ export default function DadosSobreCorona({ getDadosPorPais }) {
     <Container maxWidth="md">
       <Grid container>
         <Grid item xs={12}>
-          <ApresentacaoSobreCovid />
-        </Grid>
-        <Grid item xs={12}>
           <FiltroPais onPaisChange={setNomePaisSelecionado} />
         </Grid>
       </Grid>
@@ -60,6 +57,9 @@ export default function DadosSobreCorona({ getDadosPorPais }) {
           </Grid>
         </Grid>
       )}
+      <Grid item xs={12}>
+        <ApresentacaoSobreCovid />
+      </Grid>
     </Container>
   );
 }
