@@ -63,12 +63,7 @@ export default function CardDadosCorona({ dados }) {
       <CardContent>
         <Box mb={2}>
           <GridTituloStyled container justify="center">
-            <TypographyTituloStyled
-              className={classes.title}
-              color="textSecondary"
-              align="right"
-              variant="overline"
-            >
+            <TypographyTituloStyled align="right" variant="overline">
               {dataAtualizacaoFormatada}
             </TypographyTituloStyled>
           </GridTituloStyled>
@@ -76,11 +71,7 @@ export default function CardDadosCorona({ dados }) {
         <Grid container spacing={3} justify="center">
           {dadosEstruturados.map(({ titulo }) => (
             <Grid key={titulo} item xs={3} container justify="center">
-              <TypographyTipoDadoStyled
-                color="textSecondary"
-                align="center"
-                variant="overline"
-              >
+              <TypographyTipoDadoStyled align="center" variant="overline">
                 {titulo}
               </TypographyTipoDadoStyled>
             </Grid>
