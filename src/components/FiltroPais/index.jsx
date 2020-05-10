@@ -4,7 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Grid from '@material-ui/core/Grid';
 import paises from './paises.json';
-import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 
 export default function FiltroPais({ onPaisChange }) {

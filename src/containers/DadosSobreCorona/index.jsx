@@ -11,30 +11,33 @@ import CardDadosCorona from '../../components/CardDadosCorona';
 export default function DadosSobreCorona({ getDadosPorPais }) {
   const [dadosCorona, setDadosCorona] = useState();
   const [nomePaisSelecionado, setNomePaisSelecionado] = useState();
-  const buscaDadosApi = useCallback(async (pais) => {
-    const { data: resultado } = await getDadosPorPais(pais);
-    if (Array.isArray(resultado) && resultado.length > 0) {
-      const {
-        confirmed,
-        recovered,
-        critical,
-        deaths,
-        lastUpdate,
-      } = resultado[0];
-      const dataAtualizacao = lastUpdate
-        ? moment(lastUpdate, 'YYYY-MM-DDTHH:mm:ssZ').toDate()
-        : null;
-      setDadosCorona({
-        confirmados: confirmed,
-        recuperados: recovered,
-        criticos: critical,
-        mortes: deaths,
-        dataAtualizacao,
-      });
-    } else {
-      setDadosCorona(null);
-    }
-  }, []);
+  const buscaDadosApi = useCallback(
+    async (pais) => {
+      const { data: resultado } = await getDadosPorPais(pais);
+      if (Array.isArray(resultado) && resultado.length > 0) {
+        const {
+          confirmed,
+          recovered,
+          critical,
+          deaths,
+          lastUpdate,
+        } = resultado[0];
+        const dataAtualizacao = lastUpdate
+          ? moment(lastUpdate, 'YYYY-MM-DDTHH:mm:ssZ').toDate()
+          : null;
+        setDadosCorona({
+          confirmados: confirmed,
+          recuperados: recovered,
+          criticos: critical,
+          mortes: deaths,
+          dataAtualizacao,
+        });
+      } else {
+        setDadosCorona(null);
+      }
+    },
+    [getDadosPorPais]
+  );
 
   useEffect(() => {
     if (nomePaisSelecionado) {

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Grid, Typography } from '@material-ui/core';
+import React from 'react';
 
 export const GridTituloStyled = styled(Grid)`
   background: ${({ theme }) => theme.palette.primary.main};
@@ -20,7 +21,9 @@ export const TypographyTipoDadoStyled = styled(Typography)`
   }
 `;
 
-export const TypographyValorDadoStyled = styled(Typography)`
+export const TypographyValorDadoStyled = styled(({ green, red, ...props }) => (
+  <Typography {...props} />
+))`
   ${({ green }) =>
     green &&
     css`
